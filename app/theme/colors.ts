@@ -11,24 +11,24 @@ const palette = {
   neutral800: "#191015",
   neutral900: "#000000",
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
-  primary500: "#C76542",
-  primary600: "#A54F31",
+  primary100: "#46598c",
+  primary200: "#90adf9",
+  primary300: "#637DCC",
+  primary400: "#4C6BC5",
+  primary500: "#3C5BB8",
+  primary600: "#344FA0",
 
-  secondary100: "#DCDDE9",
-  secondary200: "#BCC0D6",
-  secondary300: "#9196B9",
-  secondary400: "#626894",
-  secondary500: "#41476E",
+  secondary100: "#0F4CF4",
+  secondary200: "#0A3ECF",
+  secondary300: "#0832A8",
+  secondary400: "#062680",
+  secondary500: "#041955",
 
-  accent100: "#FFEED4",
-  accent200: "#FFE1B2",
-  accent300: "#FDD495",
-  accent400: "#FBC878",
-  accent500: "#FFBB50",
+  accent100: "#F369FF",
+  accent200: "#F050FF",
+  accent300: "#EE37FF",
+  accent400: "#EC1EFF",
+  accent500: "#EB06FF",
 
   angry100: "#F2D6CD",
   angry500: "#C03403",
@@ -51,15 +51,23 @@ export const colors = {
   /**
    * The default text color in many components.
    */
-  text: palette.neutral800,
+  text: palette.neutral100,
   /**
    * Secondary text information.
    */
-  textDim: palette.neutral600,
+  textDim: palette.neutral200,
   /**
    * The default color of the screen background.
    */
-  background: palette.neutral200,
+  background: palette.primary600,
+  /**
+   * Card backgorund
+   */
+  cardBackground: palette.secondary500,
+  /**
+   * Placeholder color
+   */
+  placeholder: palette.primary200,
   /**
    * The default border color.
    */

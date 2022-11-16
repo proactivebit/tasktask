@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2215ACBC1E62C44583DB69A9 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AFED2E09CC2E86D1338C0F /* ExpoModulesProvider.swift */; };
+		34986077291D44C1008B3F1E /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34986076291D44C1008B3F1E /* Expo.plist */; };
 		400EB2C1E1807E6CBC68B7AB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951E59D51E504BC9C5F46169 /* ExpoModulesProvider.swift */; };
 		7699B88040F8A987B510C191 /* libPods-TaskTask-TaskTaskTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TaskTask-TaskTaskTests.a */; };
 		BE406F562862D73000A81E39 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE406F552862D73000A81E39 /* BootSplash.storyboard */; };
@@ -39,6 +40,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TaskTask/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TaskTask/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-TaskTask-TaskTaskTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskTask-TaskTaskTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34986076291D44C1008B3F1E /* Expo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		34F86529291D9733005D0857 /* TaskTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = TaskTask.entitlements; path = TaskTask/TaskTask.entitlements; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-TaskTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTask.debug.xcconfig"; path = "Target Support Files/Pods-TaskTask/Pods-TaskTask.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-TaskTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTask.release.xcconfig"; path = "Target Support Files/Pods-TaskTask/Pods-TaskTask.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-TaskTask-TaskTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTask-TaskTaskTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskTask-TaskTaskTests/Pods-TaskTask-TaskTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		13B07FAE1A68108700A75B9A /* TaskTask */ = {
 			isa = PBXGroup;
 			children = (
+				34F86529291D9733005D0857 /* TaskTask.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -108,6 +112,14 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-TaskTask-TaskTaskTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34986075291D4430008B3F1E /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				34986076291D44C1008B3F1E /* Expo.plist */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		547A8E9E9663ECB3355FB756 /* ExpoModulesProviders */ = {
@@ -137,6 +149,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				34986075291D4430008B3F1E /* Supporting */,
 				13B07FAE1A68108700A75B9A /* TaskTask */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TaskTaskTests */,
@@ -272,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34986077291D44C1008B3F1E /* Expo.plist in Resources */,
 				BE406F562862D73000A81E39 /* BootSplash.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -523,7 +537,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaskTask/TaskTask.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8RGLYHD3JS;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TaskTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,7 +566,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaskTask/TaskTask.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8RGLYHD3JS;
 				INFOPLIST_FILE = TaskTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

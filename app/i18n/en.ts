@@ -3,6 +3,13 @@ const en = {
     ok: "OK!",
     cancel: "Cancel",
     back: "Back",
+    appName: "TaskTask",
+  },
+  googleSignInComponent: {
+    button: "Sign in with google",
+  },
+  appleSignInComponent: {
+    button: "Sign in with apple",
   },
   welcomeScreen: {
     postscript:
@@ -22,6 +29,35 @@ const en = {
       content: "No data found yet. Try clicking the button to refresh or reload the app.",
       button: "Let's try this again",
     },
+  },
+  loginScreen: {},
+  categorySectionComponent: {
+    name: "CATEGORIES",
+  },
+  taskSectionComponent: {
+    name: "TODAY'S TASKS",
+  },
+  buttonCalendar: {
+    currentDay: "Today",
+  },
+  addToDoScreen: {
+    input: {
+      placeholder: "Enter new task",
+    },
+    button: {
+      add: "New task",
+    },
+  },
+  addCategoryScreen: {
+    button: {
+      add: "New category",
+    },
+    input: {
+      placeholder: "Enter new category",
+    },
+  },
+  mainMenu: {
+    categories: "Categories",
   },
 }
 
