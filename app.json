@@ -4,7 +4,7 @@
   "expo": {
     "name": "TaskTask",
     "slug": "TaskTask",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
     "splash": {
@@ -18,7 +18,7 @@
     "jsEngine": "jsc",
     "assetBundlePatterns": ["**/*"],
     "android": {
-      "versionCode": 9,
+      "versionCode": 10,
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.proactivebit.tasktask",
       "adaptiveIcon": {

@@ -34,7 +34,7 @@ export const LoginScreen: FC<WelcomeScreenProps> = observer(function WelcomeScre
     <Loader loading={loading} color={colors.palette.neutral900}>
       <View style={$container}>
         <View style={$topContainer}>
-          <Text style={{ color: colors.palette.primary500 }} text="Task" preset="heading" />
+          <Text style={{ color: colors.palette.angry500 }} text="Task" preset="heading" />
           <Text text="Task" preset="heading" />
         </View>
         <SafeAreaView style={$bottomContainer} edges={["bottom"]}>
