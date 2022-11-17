@@ -20,18 +20,28 @@ function login(id_token: string, accessToken: string) {
 }
 
 export function useGoogleAuthentication() {
-  const [request, response, promptAsync] = useIdTokenAuthRequest({
-    iosClientId: Constants.manifest?.extra?.iosKey,
-    androidClientId: Constants.manifest?.extra?.androidKey,
-    clientId: Constants.manifest?.extra?.firebaseWebApi,
-    redirectUri: makeRedirectUri({
-      useProxy: true,
-      native: Platform.select({
-        android: Constants.manifest?.extra?.androidKeyRedirect,
-        default: undefined,
+  let config = null
+  if (Platform.OS === "android") {
+    config = {
+      iosClientId: Constants.manifest?.extra?.iosKey,
+      androidClientId: Constants.manifest?.extra?.androidKey,
+      clientId: Constants.manifest?.extra?.firebaseWebApi,
+      redirectUri: makeRedirectUri({
+        useProxy: true,
+        native: Platform.select({
+          android: Constants.manifest?.extra?.androidKeyRedirect,
+          default: undefined,
+        }),
       }),
-    }),
-  })
+    }
+  } else {
+    config = {
+      iosClientId: Constants.manifest?.extra?.iosKey,
+      androidClientId: Constants.manifest?.extra?.androidKey,
+      clientId: Constants.manifest?.extra?.firebaseWebApi,
+    }
+  }
+  const [request, response, promptAsync] = useIdTokenAuthRequest(config)
   const [credntial, setCredentials] = useState<OAuthCredential>()
 
   useEffect(() => {
