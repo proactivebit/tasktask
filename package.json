@@ -107,7 +107,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "7.30.0",
+    "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-native": "4.0.0",
     "expo-detox-hook": "1.0.10",
     "expo-modules-autolinking": "0.10.1",
