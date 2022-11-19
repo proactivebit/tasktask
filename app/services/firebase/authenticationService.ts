@@ -1,5 +1,10 @@
-import type { AuthCredential } from "@firebase/auth"
-import { signInWithCredential, updateEmail, updateProfile } from "@firebase/auth"
+import {
+  AuthCredential,
+  signInWithCredential,
+  signOut,
+  updateEmail,
+  updateProfile,
+} from "@firebase/auth"
 import { auth } from "../../config/firebase"
 
 export class AuthenticationService {
@@ -19,6 +24,10 @@ export class AuthenticationService {
     }
 
     return user
+  }
+
+  public async logout() {
+    await signOut(auth)
   }
 }
 

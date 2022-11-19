@@ -4,6 +4,7 @@ const en = {
     cancel: "Cancel",
     back: "Back",
     appName: "TaskTask",
+    logout: "Logout",
   },
   googleSignInComponent: {
     button: "Sign in with google",

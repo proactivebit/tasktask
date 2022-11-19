@@ -17,6 +17,7 @@ interface WelcomeScreenProps extends AppStackScreenProps<"Login"> {}
 export const LoginScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen() {
   const [loading, setLoading] = useState(false)
   const isAppleSignInAvailable = useAppleSignIsAvailable()
+  const [error, setError] = useState("")
 
   const { authenticationStore } = useStores()
 
@@ -25,8 +26,13 @@ export const LoginScreen: FC<WelcomeScreenProps> = observer(function WelcomeScre
       return
     }
     setLoading(true)
-    const user = await authenticationService.loginWithCredential(credential, data)
-    authenticationStore.setUser(user)
+    try {
+      const user = await authenticationService.loginWithCredential(credential, data)
+      authenticationStore.setUser(user)
+    } catch (error) {
+      setError(error.message)
+      throw error
+    }
     setLoading(false)
   }
 
@@ -37,6 +43,7 @@ export const LoginScreen: FC<WelcomeScreenProps> = observer(function WelcomeScre
           <Text style={{ color: colors.palette.angry500 }} text="Task" preset="heading" />
           <Text text="Task" preset="heading" />
         </View>
+        <Text>{JSON.stringify(error)}</Text>
         <SafeAreaView style={$bottomContainer} edges={["bottom"]}>
           <GoogleSignIn onSuccessLogin={login} />
           {isAppleSignInAvailable && <AppleSignIn style={$appleButton} onSuccessLogin={login} />}

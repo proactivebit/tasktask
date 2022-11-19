@@ -2,8 +2,9 @@ import { FontAwesome5 } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import * as React from "react"
 import { useRef } from "react"
-import { FlatList, ImageStyle, StyleProp, View, ViewStyle } from "react-native"
+import { FlatList, StyleProp, View, ViewStyle } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { useStores } from "../models"
 import { colors, spacing } from "../theme"
 import { Button } from "./Button"
 import { Text } from "./Text"
@@ -23,9 +24,14 @@ export const MainMenuContent = function MainMenuContent(props: MainMenuContentPr
   const $styles = [$container, style]
   const menuRef = useRef<FlatList>()
   const navigation = useNavigation<any>()
+  const { authenticationStore } = useStores()
 
   const navigateToCategories = () => {
     navigation.navigate("Category", { screen: "Categories" })
+  }
+
+  const logout = () => {
+    authenticationStore.logout()
   }
 
   return (
@@ -35,10 +41,22 @@ export const MainMenuContent = function MainMenuContent(props: MainMenuContentPr
       </View>
       <View style={$menu}>
         <Button
-          LeftAccessory={(props) => <FontAwesome5 {...props} name="bell" color="white" size="20" />}
+          style={$button}
+          LeftAccessory={(props) => (
+            <FontAwesome5 {...props} name="layer-group" color="white" size="20" />
+          )}
           tx="mainMenu.categories"
           preset="outline"
           onPress={navigateToCategories}
+        ></Button>
+        <Button
+          style={$button}
+          LeftAccessory={(props) => (
+            <FontAwesome5 {...props} name="sign-out-alt" color="white" size="20" />
+          )}
+          tx="common.logout"
+          preset="outline"
+          onPress={logout}
         ></Button>
       </View>
     </SafeAreaView>
@@ -59,11 +77,6 @@ const $logoContainer: ViewStyle = {
 
 const $menu: ViewStyle = {}
 
-const $logoImage: ImageStyle = {
-  height: 42,
-  width: 77,
-}
-
-const $flatListContentContainer: ViewStyle = {
-  paddingHorizontal: spacing.large,
+const $button: ViewStyle = {
+  marginTop: spacing.medium,
 }

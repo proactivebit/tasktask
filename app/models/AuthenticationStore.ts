@@ -1,5 +1,6 @@
 import { User } from "@firebase/auth"
-import { Instance, SnapshotIn, SnapshotOut, types } from "mobx-state-tree"
+import { flow, Instance, SnapshotIn, SnapshotOut, types } from "mobx-state-tree"
+import { authenticationService } from "../services/firebase/authenticationService"
 import { UserModel, UserSnapshotIn } from "./User"
 
 /**
@@ -25,6 +26,10 @@ export const AuthenticationStoreModel = types
       user.displayName && (newUser.displayName = user.displayName)
       self.user = UserModel.create(newUser)
     },
+    logout: flow(function* logout() {
+      yield authenticationService.logout()
+      self.user = undefined
+    }),
   })) // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export interface AuthenticationStore extends Instance<typeof AuthenticationStoreModel> {}
