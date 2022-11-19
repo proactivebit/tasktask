@@ -43,7 +43,7 @@ export const GoogleSignIn = observer(function GoogleSignIn(props: GoogleSignInPr
   return (
     <View style={$styles}>
       <Button
-        LeftAccessory={(props) => <FontAwesome5 {...props} name="google" color="white" size="20" />}
+        LeftAccessory={(props) => <FontAwesome5 {...props} name="google" color="white" />}
         tx="googleSignInComponent.button"
         preset="filled"
         textStyle={$buttonText}

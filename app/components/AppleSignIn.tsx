@@ -39,7 +39,7 @@ export const AppleSignIn = observer(function AppleSignIn(props: AppleSignInProps
   return (
     <View style={$styles}>
       <Button
-        LeftAccessory={(props) => <FontAwesome5 {...props} name="apple" color="white" size="20" />}
+        LeftAccessory={(props) => <FontAwesome5 {...props} name="apple" color="white" />}
         tx="appleSignInComponent.button"
         preset="filled"
         textStyle={$buttonText}

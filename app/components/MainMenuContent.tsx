@@ -42,18 +42,14 @@ export const MainMenuContent = function MainMenuContent(props: MainMenuContentPr
       <View style={$menu}>
         <Button
           style={$button}
-          LeftAccessory={(props) => (
-            <FontAwesome5 {...props} name="layer-group" color="white" size="20" />
-          )}
+          LeftAccessory={(props) => <FontAwesome5 {...props} name="layer-group" color="white" />}
           tx="mainMenu.categories"
           preset="outline"
           onPress={navigateToCategories}
         ></Button>
         <Button
           style={$button}
-          LeftAccessory={(props) => (
-            <FontAwesome5 {...props} name="sign-out-alt" color="white" size="20" />
-          )}
+          LeftAccessory={(props) => <FontAwesome5 {...props} name="sign-out-alt" color="white" />}
           tx="common.logout"
           preset="outline"
           onPress={logout}
