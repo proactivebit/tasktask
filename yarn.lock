@@ -6230,10 +6230,10 @@ detox-expo-helpers@0.6.0:
     semver "^5.6.0"
     xdl "^51.5.0"
 
-detox@19.12.1:
-  version "19.12.1"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-19.12.1.tgz#6ad924f93c60dd9188ac62866222233435b53bd2"
-  integrity sha512-sh8xxWLSykJ8zH1zxP2nXV9iIcuwQ4Umn8LKCtkilrLen9K/EJqNN2miMfu7Mue63aTVt6KFLJ6y11yFuZ2LXQ==
+detox@19.13.0:
+  version "19.13.0"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-19.13.0.tgz#6eae8b4e5ef5ca913d465ddc5bd7855fe8834c5c"
+  integrity sha512-tKg0m5wlb4r1MISFtqPFXwdLncXWQhWaoAV6nuC3MmBGcJnTSrSa7wNZG26HhfEeR8c6eRUqMFHKefiZnWoO1Q==
   dependencies:
     ajv "^8.6.3"
     bunyan "^1.8.12"
