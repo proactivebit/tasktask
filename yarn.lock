@@ -10107,7 +10107,7 @@ jimp-compact@0.16.1:
   resolved "https://registry.yarnpkg.com/jimp-compact/-/jimp-compact-0.16.1.tgz#9582aea06548a2c1e04dd148d7c3ab92075aefa3"
   integrity sha512-dZ6Ra7u1G8c4Letq/B5EzAxj4tLFHL+cGtdpR+PVm4yzPDj+lCk+AbivWt1eOM+ikzkowtyV7qSqX6qr3t71Ww==
 
-jimp@^0.16.1:
+jimp@^0.16.2:
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/jimp/-/jimp-0.16.2.tgz#c03e296381ae37586e27f209d134d4596d112f7b"
   integrity sha512-UpItBk81a92f8oEyoGYbO3YK4QcM0hoIyuGHmShoF9Ov63P5Qo7Q/X2xsAgnODmSuDJFOtrPtJd5GSWW4LKdOQ==
@@ -13751,13 +13751,13 @@ react-lifecycles-compat@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-native-bootsplash@4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-4.3.2.tgz#347b024975dc344310ee4d95cb3be56b0b39e381"
-  integrity sha512-HzXl6AKk4sRjEtV+1C7q4gSXP5kYMhpzGaB4DllZNObdZ8oVH8Ac7Y9ShKZ8wLQLJaG/TtzyGHKIDaNi0oNGJA==
+react-native-bootsplash@4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-4.3.3.tgz#a6eab71d9dc9b93b796fc0bca22422548645d69d"
+  integrity sha512-SU//XHpNrJttiLeOnCkr6H7NQfZRX5tMMUazdt9g/o9QLO99OICTjQXGqsmiBC4QLjUSDIE2H5y8kc1KXiuQiQ==
   dependencies:
     fs-extra "^10.1.0"
-    jimp "^0.16.1"
+    jimp "^0.16.2"
     picocolors "^1.0.0"
 
 react-native-codegen@^0.69.2:
