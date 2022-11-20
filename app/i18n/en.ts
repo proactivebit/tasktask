@@ -5,6 +5,8 @@ const en = {
     back: "Back",
     appName: "TaskTask",
     logout: "Logout",
+    accept: "Accept",
+    and: "and",
   },
   googleSignInComponent: {
     button: "Sign in with google",
@@ -31,7 +33,9 @@ const en = {
       button: "Let's try this again",
     },
   },
-  loginScreen: {},
+  loginScreen: {
+    privacyInfo: "By login you accept",
+  },
   categorySectionComponent: {
     name: "CATEGORIES",
   },
@@ -59,6 +63,14 @@ const en = {
   },
   mainMenu: {
     categories: "Categories",
+    privacyPolicy: "Privacy policy",
+    termsAndConditions: "Terms & Conditions",
+  },
+  account: {
+    remove: "Delete account",
+  },
+  confirmationMessage: {
+    deleteUser: "Do you realy want to delete your user account?",
   },
 }
 

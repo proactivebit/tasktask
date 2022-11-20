@@ -21,13 +21,16 @@ export const AuthenticationStoreModel = types
       const newUser: UserSnapshotIn = {
         email: user.email,
         uid: user.uid,
-        refreshToken: user.refreshToken,
       }
       user.displayName && (newUser.displayName = user.displayName)
       self.user = UserModel.create(newUser)
     },
     logout: flow(function* logout() {
       yield authenticationService.logout()
+      self.user = undefined
+    }),
+    removeAccount: flow(function* logout() {
+      yield authenticationService.removeAccount()
       self.user = undefined
     }),
   })) // eslint-disable-line @typescript-eslint/no-unused-vars

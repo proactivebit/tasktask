@@ -9,7 +9,6 @@ export const UserModel = types
     displayName: types.optional(types.string, "", null),
     email: "",
     uid: types.identifier,
-    refreshToken: "",
   })
   .views((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars
   .actions((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars

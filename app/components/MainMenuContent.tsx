@@ -1,12 +1,13 @@
 import { FontAwesome5 } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import * as React from "react"
-import { useRef } from "react"
-import { FlatList, StyleProp, View, ViewStyle } from "react-native"
+import { useState } from "react"
+import { Linking, StyleProp, View, ViewStyle } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { useStores } from "../models"
 import { colors, spacing } from "../theme"
 import { Button } from "./Button"
+import { ConfirmationModal } from "./ConfirmationModal"
 import { Text } from "./Text"
 
 export interface MainMenuContentProps {
@@ -22,9 +23,9 @@ export interface MainMenuContentProps {
 export const MainMenuContent = function MainMenuContent(props: MainMenuContentProps) {
   const { style } = props
   const $styles = [$container, style]
-  const menuRef = useRef<FlatList>()
   const navigation = useNavigation<any>()
   const { authenticationStore } = useStores()
+  const [deleteUserModal, setDeleteUserModal] = useState(false)
 
   const navigateToCategories = () => {
     navigation.navigate("Category", { screen: "Categories" })
@@ -32,6 +33,15 @@ export const MainMenuContent = function MainMenuContent(props: MainMenuContentPr
 
   const logout = () => {
     authenticationStore.logout()
+  }
+
+  const removeAccount = () => {
+    setDeleteUserModal(true)
+  }
+
+  const handleRemoveAccount = () => {
+    setDeleteUserModal(false)
+    authenticationStore.removeAccount()
   }
 
   return (
@@ -54,7 +64,34 @@ export const MainMenuContent = function MainMenuContent(props: MainMenuContentPr
           preset="outline"
           onPress={logout}
         ></Button>
+        <Button
+          style={$button}
+          LeftAccessory={(props) => <FontAwesome5 {...props} name="user-slash" color="white" />}
+          tx="account.remove"
+          preset="outline"
+          onPress={removeAccount}
+        ></Button>
+        <Button
+          style={$button}
+          LeftAccessory={(props) => <FontAwesome5 {...props} name="user-shield" color="white" />}
+          tx="mainMenu.privacyPolicy"
+          preset="outline"
+          onPress={() => Linking.openURL("https://tasktask-62204.web.app")}
+        ></Button>
+        <Button
+          style={$button}
+          LeftAccessory={(props) => <FontAwesome5 {...props} name="user-shield" color="white" />}
+          tx="mainMenu.termsAndConditions"
+          preset="outline"
+          onPress={() => Linking.openURL("https://tasktask-62204.web.app/termsandconitions.html")}
+        ></Button>
       </View>
+      <ConfirmationModal
+        setModalVisible={setDeleteUserModal}
+        visible={deleteUserModal}
+        tx="confirmationMessage.deleteUser"
+        onAccept={handleRemoveAccount}
+      />
     </SafeAreaView>
   )
 }

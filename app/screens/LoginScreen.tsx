@@ -1,7 +1,7 @@
 import type { AuthCredential } from "@firebase/auth"
 import { observer } from "mobx-react-lite"
 import React, { FC, useState } from "react"
-import { View, ViewStyle } from "react-native"
+import { Linking, TextStyle, View, ViewStyle } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { Loader, Text } from "../components"
 import { AppleSignIn } from "../components/AppleSignIn"
@@ -40,13 +40,31 @@ export const LoginScreen: FC<WelcomeScreenProps> = observer(function WelcomeScre
     <Loader loading={loading} color={colors.palette.neutral900}>
       <View style={$container}>
         <View style={$topContainer}>
-          <Text style={{ color: colors.palette.angry500 }} text="Task" preset="heading" />
-          <Text text="Task" preset="heading" />
+          <Text text="TaskTask" preset="heading" />
         </View>
-        <Text>{JSON.stringify(error)}</Text>
         <SafeAreaView style={$bottomContainer} edges={["bottom"]}>
-          <GoogleSignIn onSuccessLogin={login} />
-          {isAppleSignInAvailable && <AppleSignIn style={$appleButton} onSuccessLogin={login} />}
+          <View style={$buttonsContainer}>
+            <GoogleSignIn onSuccessLogin={login} />
+            {isAppleSignInAvailable && <AppleSignIn style={$appleButton} onSuccessLogin={login} />}
+          </View>
+          <View style={$privacyInfoContainer}>
+            <Text style={{ textAlign: "center" }}>
+              <Text style={$text} tx="loginScreen.privacyInfo"></Text>{" "}
+              <Text
+                style={[$text, $textLink]}
+                tx="mainMenu.termsAndConditions"
+                onPress={() =>
+                  Linking.openURL("https://tasktask-62204.web.app/termsandconitions.html")
+                }
+              ></Text>{" "}
+              <Text style={$text} tx="common.and"></Text>{" "}
+              <Text
+                style={[$text, $textLink]}
+                tx="mainMenu.privacyPolicy"
+                onPress={() => Linking.openURL("https://tasktask-62204.web.app")}
+              ></Text>
+            </Text>
+          </View>
         </SafeAreaView>
       </View>
     </Loader>
@@ -72,7 +90,7 @@ const $bottomContainer: ViewStyle = {
   flexShrink: 1,
   flexGrow: 0,
   flexBasis: "50%",
-  justifyContent: "center",
+
   backgroundColor: colors.palette.neutral100,
   borderTopLeftRadius: 16,
   borderTopRightRadius: 16,
@@ -80,6 +98,23 @@ const $bottomContainer: ViewStyle = {
   paddingBottom: spacing.large,
 }
 
+const $buttonsContainer: ViewStyle = {
+  justifyContent: "center",
+  flex: 1,
+}
+
 const $appleButton: ViewStyle = {
   marginTop: spacing.large,
+}
+
+const $privacyInfoContainer: ViewStyle = {
+  alignSelf: "flex-end",
+}
+
+const $text: TextStyle = {
+  color: colors.palette.neutral900,
+}
+
+const $textLink: TextStyle = {
+  color: "#dd4935",
 }

@@ -1,5 +1,6 @@
 import {
   AuthCredential,
+  deleteUser,
   signInWithCredential,
   signOut,
   updateEmail,
@@ -28,6 +29,10 @@ export class AuthenticationService {
 
   public async logout() {
     await signOut(auth)
+  }
+
+  public async removeAccount() {
+    await deleteUser(auth.currentUser)
   }
 }
 

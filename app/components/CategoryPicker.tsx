@@ -89,6 +89,13 @@ export const CategoryPicker = observer(function CategoryPicker(props: CategoryPi
                   label={category.name}
                   onPress={() => hanleCategorySelected(category)}
                   value={category.id === value?.id}
+                  inputDetailStyle={{
+                    width: 20,
+                    height: 20,
+                    borderRadius: 90,
+                    backgroundColor: color,
+                  }}
+                  inputOuterStyle={[$toggleOuter, { borderColor: category.color }] as ViewStyle}
                 />
               ))}
             </View>
@@ -118,4 +125,11 @@ const $modalView: ViewStyle = {
 
 const $categoryItem: ViewStyle = {
   marginVertical: spacing.small,
+}
+
+const $toggleOuter: ViewStyle = {
+  borderRadius: 90,
+  backgroundColor: colors.cardBackground,
+  width: 30,
+  height: 30,
 }
