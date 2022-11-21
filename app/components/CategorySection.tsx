@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite"
 import * as React from "react"
 import { ScrollView, StyleProp, TextStyle, View, ViewStyle } from "react-native"
+import { useCategories } from "../hooks/useCategories"
 import { useStores } from "../models"
 import { CategoryProgressCard } from "./CategoryProgressCard"
 import { SectionHeader } from "./SectionHeader"
@@ -21,6 +22,7 @@ export const CategorySection = observer(function CategorySection(props: Category
   const {
     taskStore: { categories },
   } = useStores()
+  useCategories()
 
   return (
     <View style={$styles}>

@@ -14,6 +14,10 @@ export interface TextFieldNoBordersProps extends Omit<TextInputProps, "ref"> {
    * Placeholder text which is looked up via i18n.
    */
   placeholderTx?: TextProps["tx"]
+  /**
+   * Reference to input
+   */
+  forwardRef?: React.MutableRefObject<TextInput>
 }
 
 /**
@@ -22,15 +26,17 @@ export interface TextFieldNoBordersProps extends Omit<TextInputProps, "ref"> {
 export const TextFieldNoBorders = observer(function TextFieldNoBorders(
   props: TextFieldNoBordersProps,
 ) {
-  const { style, placeholderTx, placeholder, ...TextInputProps } = props
+  const { style, placeholderTx, placeholder, forwardRef, ...TextInputProps } = props
   const $styles = [$text, style]
   const placeholderContent = placeholderTx ? translate(placeholderTx) : placeholder
 
   return (
     <TextInput
+      ref={forwardRef}
       style={$styles}
       placeholder={placeholderContent}
       placeholderTextColor={colors.placeholder}
+      selectionColor={"white"}
       {...TextInputProps}
     />
   )

@@ -5,6 +5,7 @@ import { View, ViewStyle } from "react-native"
 import { Button, Header, Screen, TextFieldNoBorders } from "../components"
 import { ColorPicker } from "../components/ColorPicker"
 import { Loader } from "../components/Loader"
+import { useFocusInput } from "../hooks/useFocusInput"
 import { useStores } from "../models"
 import { CategoryScreenProps } from "../navigators/CategoryNavigator"
 import { colors, spacing } from "../theme"
@@ -22,6 +23,7 @@ export const AddCategoryScreen: FC<AddCategoryScreenProps> = observer(function A
     categoryStore,
     authenticationStore: { user },
   } = useStores()
+  const inputRef = useFocusInput()
 
   const onAddCategory = async () => {
     if (!categoryName || !color) {
@@ -47,6 +49,7 @@ export const AddCategoryScreen: FC<AddCategoryScreenProps> = observer(function A
         preset="scroll"
         safeAreaEdges={["bottom"]}
         contentContainerStyle={{ flex: 1 }}
+        statusBarStyle="light"
       >
         <Header
           rightIcon="x"
@@ -55,6 +58,7 @@ export const AddCategoryScreen: FC<AddCategoryScreenProps> = observer(function A
         />
         <View style={$content}>
           <TextFieldNoBorders
+            forwardRef={inputRef}
             value={categoryName}
             onChangeText={setCategoryName}
             placeholderTx="addCategoryScreen.input.placeholder"

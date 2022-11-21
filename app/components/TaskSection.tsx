@@ -57,7 +57,11 @@ export const TaskSection = observer(function TaskSection(props: TaskSectionProps
         />
       </View>
       <View style={$tasksWrapper}>
-        <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          ref={scrollRef}
+          showsVerticalScrollIndicator={false}
+        >
           {taskStore.filterTasksByDate(date).map((task) => {
             return (
               <TaskCard
@@ -88,5 +92,6 @@ const $icon: ViewStyle = {
 }
 
 const $tasksWrapper: ViewStyle = {
+  flex: 1,
   marginTop: spacing.extraSmall,
 }

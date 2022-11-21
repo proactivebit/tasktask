@@ -1,4 +1,4 @@
-import { createStackNavigator, StackScreenProps } from "@react-navigation/stack"
+import { createStackNavigator, StackScreenProps, TransitionPresets } from "@react-navigation/stack"
 import React from "react"
 import { AddCategoryScreen } from "../screens/AddCategoryScreen"
 import { CategoriesScreen } from "../screens/CategoriesScreen"
@@ -17,7 +17,11 @@ const Stack = createStackNavigator<CategoryNavigatorParamList>()
 export const CategoryNavigator = () => {
   return (
     <Stack.Navigator
-      screenOptions={{ cardStyle: { backgroundColor: "transparent" }, headerShown: false }}
+      screenOptions={{
+        cardStyle: { backgroundColor: "transparent" },
+        headerShown: false,
+        ...TransitionPresets.SlideFromRightIOS,
+      }}
     >
       <Stack.Screen name="Categories" component={CategoriesScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />

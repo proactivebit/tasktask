@@ -12,6 +12,7 @@ import {
 } from "../components"
 import { CategoryPicker } from "../components/CategoryPicker"
 import { Loader } from "../components/Loader"
+import { useFocusInput } from "../hooks/useFocusInput"
 import { TaskSnapshotIn, useStores } from "../models"
 import { Category } from "../models/Category"
 import { ToDoScreenProps } from "../navigators/ToDoNavigator"
@@ -25,6 +26,7 @@ export const AddToDoScreen: FC<AddToScreenProps> = observer(function AddToDoScre
   const [task, setTask] = useState("")
   const [category, setCategory] = useState<Category>()
   const [loading, setLoading] = useState(false)
+  const inputRef = useFocusInput()
   const {
     taskStore,
     authenticationStore: { user },
@@ -63,6 +65,7 @@ export const AddToDoScreen: FC<AddToScreenProps> = observer(function AddToDoScre
         <View style={$content}>
           <View style={$form}>
             <TextFieldNoBorders
+              forwardRef={inputRef}
               value={task}
               onChangeText={setTask}
               placeholderTx="addToDoScreen.input.placeholder"

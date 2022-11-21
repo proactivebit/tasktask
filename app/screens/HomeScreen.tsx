@@ -5,7 +5,6 @@ import { MainMenu, MainMenuActionButton, MainMenuWrapper, Screen } from "../comp
 import { CategorySection } from "../components/CategorySection"
 import { CircleButton } from "../components/CircleButton"
 import { TaskSection } from "../components/TaskSection"
-import { useStores } from "../models"
 import { ToDoScreenProps } from "../navigators/ToDoNavigator"
 import { colors, spacing } from "../theme"
 
@@ -13,7 +12,6 @@ interface HomeScreenProps extends ToDoScreenProps<"Home"> {}
 
 export const HomeScreen: FC<HomeScreenProps> = observer(function HomeScreen(_props) {
   const { navigation } = _props
-  const { authenticationStore } = useStores()
 
   const navigateToAddToDo = () => {
     navigation.navigate("AddToDo")

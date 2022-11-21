@@ -1,18 +1,14 @@
+import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import * as React from "react"
 import { useState } from "react"
-import {
-  Dimensions,
-  Modal,
-  StyleProp,
-  TouchableWithoutFeedback,
-  View,
-  ViewStyle,
-} from "react-native"
+import { Dimensions, StyleProp, View, ViewStyle } from "react-native"
 import { useCategoryColor } from "../hooks/useCategoryColor"
 import { useStores } from "../models"
 import { Category } from "../models/Category"
 import { colors, spacing } from "../theme"
+import { ModalWrapper } from "./ModalWrapper"
+import { Text } from "./Text"
 import { Toggle } from "./Toggle"
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen")
@@ -43,6 +39,7 @@ export const CategoryPicker = observer(function CategoryPicker(props: CategoryPi
     categoryStore: { categories },
   } = useStores()
   const [modalVisible, setModalVisible] = useState(false)
+  const navigation = useNavigation<any>()
 
   const hanleCategorySelected = (category: Category) => {
     onCategorySelected(category)
@@ -50,6 +47,11 @@ export const CategoryPicker = observer(function CategoryPicker(props: CategoryPi
   }
 
   const { color } = useCategoryColor(value)
+
+  const navigateToCategories = () => {
+    setModalVisible(false)
+    navigation.navigate("Category", { screen: "Categories" })
+  }
 
   return (
     <View style={$styles}>
@@ -70,48 +72,40 @@ export const CategoryPicker = observer(function CategoryPicker(props: CategoryPi
         }}
         value={true}
       />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible)
-        }}
-      >
-        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
-          <View style={$centeredView}>
-            <View style={$modalView}>
-              {categories.map((category) => (
-                <Toggle
-                  key={category.id}
-                  containerStyle={$categoryItem}
-                  variant="radio"
-                  label={category.name}
-                  onPress={() => hanleCategorySelected(category)}
-                  value={category.id === value?.id}
-                  inputDetailStyle={{
-                    width: 20,
-                    height: 20,
-                    borderRadius: 90,
-                    backgroundColor: color,
-                  }}
-                  inputOuterStyle={[$toggleOuter, { borderColor: category.color }] as ViewStyle}
-                />
-              ))}
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+      <ModalWrapper style={$modalView} visible={modalVisible} setModalVisible={setModalVisible}>
+        <View>
+          {categories.map((category) => (
+            <Toggle
+              key={category.id}
+              containerStyle={$categoryItem}
+              variant="radio"
+              label={category.name}
+              onPress={() => hanleCategorySelected(category)}
+              value={category.id === value?.id}
+              inputDetailStyle={{
+                width: 20,
+                height: 20,
+                borderRadius: 90,
+                backgroundColor: color,
+              }}
+              inputOuterStyle={[$toggleOuter, { borderColor: category.color }] as ViewStyle}
+            />
+          ))}
+          {categories.length === 0 && (
+            <Text style={{ textAlign: "center" }}>
+              <Text tx="categoryPickerComponent.noCategoryInfo"></Text>
+              <Text
+                tx="categoryPickerComponent.categoryLink"
+                style={{ textDecorationLine: "underline" }}
+                onPress={navigateToCategories}
+              />
+            </Text>
+          )}
+        </View>
+      </ModalWrapper>
     </View>
   )
 })
-
-const $centeredView: ViewStyle = {
-  flex: 1,
-  justifyContent: "center",
-  alignItems: "center",
-  marginTop: 22,
-}
 
 const $container: ViewStyle = {
   justifyContent: "center",
@@ -119,8 +113,6 @@ const $container: ViewStyle = {
 
 const $modalView: ViewStyle = {
   backgroundColor: colors.cardBackground,
-  padding: spacing.extraLarge,
-  width: MODAL_WIDTH,
 }
 
 const $categoryItem: ViewStyle = {

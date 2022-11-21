@@ -1,5 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native"
-import { createStackNavigator, StackScreenProps } from "@react-navigation/stack"
+import { createStackNavigator, StackScreenProps, TransitionPresets } from "@react-navigation/stack"
 import React from "react"
 import { HomeScreen } from "../screens"
 import { AddToDoScreen } from "../screens/AddToDoScreen"
@@ -20,7 +20,11 @@ const Stack = createStackNavigator<ToDoNavigatorParamList>()
 export const ToDoNavigator = () => {
   return (
     <Stack.Navigator
-      screenOptions={{ cardStyle: { backgroundColor: "transparent" }, headerShown: false }}
+      screenOptions={{
+        cardStyle: { backgroundColor: "transparent" },
+        headerShown: false,
+        ...TransitionPresets.SlideFromRightIOS,
+      }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="AddToDo" component={AddToDoScreen} />

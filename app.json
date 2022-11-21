@@ -4,7 +4,7 @@
   "expo": {
     "name": "TaskTask",
     "slug": "TaskTask",
-    "version": "1.0.19",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
     "splash": {
@@ -18,7 +18,7 @@
     "jsEngine": "jsc",
     "assetBundlePatterns": ["**/*"],
     "android": {
-      "versionCode": 16,
+      "versionCode": 17,
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.proactivebit.tasktask",
       "adaptiveIcon": {
@@ -42,7 +42,7 @@
     },
     "ios": {
       "icon": "./assets/images/app-icon-ios.png",
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.proactivebit.tasktask",
       "splash": {
         "image": "./assets/images/splash-logo-ios-mobile.png",

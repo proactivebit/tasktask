@@ -72,6 +72,10 @@ const en = {
   confirmationMessage: {
     deleteUser: "Do you realy want to delete your user account?",
   },
+  categoryPickerComponent: {
+    noCategoryInfo: "No category set. ",
+    categoryLink: "Add new one",
+  },
 }
 
 export default en
