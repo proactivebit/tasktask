@@ -84,3 +84,7 @@ web-build/
 # Configurations
 !env.js
 .env
+
+# Custom
+.firebase/*
+.firebaserc
